@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 import 'tachyons';
 import * as serviceWorker from './serviceWorker';
-import CardList from './component/CardList';
 import App from './container/App';
+import {searchRobots} from './Reducer.js'
 import './index.css'
+const store=createStore(searchRobots)
 ReactDOM.render(
-  <App CardList={CardList}/>,
+  <Provider store={store}>
+  	<App />
+  </Provider>,
   document.getElementById('root')
 );
 
